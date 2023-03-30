@@ -9,17 +9,26 @@ function PhotographyContextProvider(props) {
   const [liked, setLiked] = useState(false)
 
   useEffect(() => {
-    axios.get('https://adorable-jersey-fly.cyclic.app/photography')
-      .then(res => setPhotoGear(res.data))
-      .catch(err => err => console.log(err.response.data.errMsg))
+    axios.get('https://adorable-jersey-fly.cyclic.app/api/photography', {
+      headers: {
+        "access-control-allow-origin": "*",
+      }
+    })
 
-      axios.get('https://adorable-jersey-fly.cyclic.app/wishlist')
+      .then(res => setPhotoGear(res.data))
+      .catch(err => err => console.log(err))
+
+      axios.get('https://adorable-jersey-fly.cyclic.app/api/wishlist',  {
+        headers: {
+          "access-control-allow-origin": "*",
+        }
+      })
       .then(res => setPhotoWishlist(res.data))
-      .catch(err => err => console.log(err.response.data.errMsg))
+      .catch(err => err => console.log(err))
   }, []);
 
   const handleAddToWishlist = (item) => {
-    axios.post('https://adorable-jersey-fly.cyclic.app/wishlist', item)
+    axios.post('https://adorable-jersey-fly.cyclic.app/api/wishlist', item)
       .then(res => setPhotoWishlist(prevList => [...prevList, item]))
       .catch(err => console.log(err));
   };

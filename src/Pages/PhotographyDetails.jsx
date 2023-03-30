@@ -7,7 +7,11 @@ function PhotographyDetails()  {
   const [item, setItem] = useState(null);
 
   const getData = () => {
-    axios.get(`https://adorable-jersey-fly.cyclic.app/api/photography/${id}`)
+    axios.get(`https://adorable-jersey-fly.cyclic.app/api/photography/${id}`, {
+      headers: {
+        "access-control-allow-origin": "*",
+      }
+    })
     .then((res) => setItem(res.data))
     .catch(err => console.log(err))
   }

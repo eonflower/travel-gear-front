@@ -9,19 +9,15 @@ function TechGearContextProvider(props) {
   const [liked, setLiked] = useState(false)
 
   useEffect(() => {
-    axios.get('https://adorable-jersey-fly.cyclic.app/techGear')
+    const getData = async () => {
+      axios.get('https://adorable-jersey-fly.cyclic.app/api/techGear', {
+        headers: {
+          "access-control-allow-origin": "*",
+        }
+      })
       .then(res => setTechGear(res.data))
-    //   .then(res => {
-    //     // Add a 'liked' property to each item in the photoGear array
-    //     const updatedTechGear = res.data.map(item => {
-    //         return {
-    //             ...item,
-    //             isOnWishlist: liked// set the initial liked state to false
-    //         };
-    //     });
-    //     setTechGear(updatedTechGear);
-    // })
-      .catch(err => err => console.log(err.response.data.errMsg))
+      .catch(err => err => console.log(err))
+    }
 
   }, []);
 
