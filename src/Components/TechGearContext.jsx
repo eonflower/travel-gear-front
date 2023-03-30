@@ -9,7 +9,7 @@ function TechGearContextProvider(props) {
   const [liked, setLiked] = useState(false)
 
   useEffect(() => {
-    axios.get('https://adorable-jersey-fly.cyclic.app/api/techGear')
+    axios.get('https://adorable-jersey-fly.cyclic.app/techGear')
       .then(res => setTechGear(res.data))
     //   .then(res => {
     //     // Add a 'liked' property to each item in the photoGear array
@@ -26,7 +26,7 @@ function TechGearContextProvider(props) {
   }, []);
 
   const handleAddToWishlist = (item) => {
-    axios.post('https://adorable-jersey-fly.cyclic.app/api/wishlist', item)
+    axios.post('https://adorable-jersey-fly.cyclic.app/wishlist', item)
       .then(res => setTechWishlist(prevList => [...prevList, item]))
       .catch(err => alert("Item is in wishlist"));
       
