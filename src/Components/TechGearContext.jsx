@@ -18,7 +18,7 @@ function TechGearContextProvider(props) {
   }, []);
 
   const handleAddToWishlist = (item) => {
-    axios.post('https://adorable-jersey-fly.cyclic.app/wishlist', item)
+    axios.post('https://adorable-jersey-fly.cyclic.app/api/wishlist', item)
       .then(res => setTechWishlist(prevList => [...prevList, item]))
       .catch(err => alert("Item is in wishlist"));
       

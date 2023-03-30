@@ -9,15 +9,15 @@ function PhotographyContextProvider(props) {
   const [liked, setLiked] = useState(false)
 
   useEffect(() => {
-    axios.get('https://adorable-jersey-fly.cyclic.app/apiphotography')
+    axios.get('https://adorable-jersey-fly.cyclic.app/api/photography')
       .then(res => console.log(res))
       // .then(res => setPhotoGear(res.data))
       .catch(err => err => console.log(err))
 
-      axios.get('https://adorable-jersey-fly.cyclic.app/api/wishlist')
-      .then(res => console.log(res))
-      // .then(res => setPhotoWishlist(res.data))
-      .catch(err => err => console.log(err))
+      // axios.get('https://adorable-jersey-fly.cyclic.app/api/wishlist')
+      // .then(res => console.log(res))
+      // // .then(res => setPhotoWishlist(res.data))
+      // .catch(err => err => console.log(err))
   }, []);
 
   const handleAddToWishlist = (item) => {
