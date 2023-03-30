@@ -10,11 +10,7 @@ function TechGearContextProvider(props) {
 
   useEffect(() => {
     const getData = async () => {
-      axios.get('https://adorable-jersey-fly.cyclic.app/api/techGear', {
-        headers: {
-          "access-control-allow-origin": "*",
-        }
-      })
+      axios.get('https://adorable-jersey-fly.cyclic.app/api/techGear')
       .then(res => setTechGear(res.data))
       .catch(err => err => console.log(err))
     }

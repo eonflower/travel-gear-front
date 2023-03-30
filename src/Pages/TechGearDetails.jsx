@@ -9,7 +9,8 @@ function TechGearDetails() {
   const getData = () => {
     axios
       .get(`https://adorable-jersey-fly.cyclic.app/techGear/${id}`)
-      .then((res) => setItem(res.data))
+      // .then((res) => setItem(res.data))
+      .then(res => console.log(res))
       .catch((err) => console.log(err));
   };
 
